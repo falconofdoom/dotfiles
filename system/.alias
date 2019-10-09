@@ -157,40 +157,12 @@ alias po=popd
 alias pu=pushd
 alias rd=rmdir
 alias which-command=whence
-
-# My Personal Shortcuts Start Here
-
-dispr() { cat "src/main/resources/$1"; }
-mvnbr() { mvn spring-boot:run -Dspring-boot.run.profiles=$1; }
-mvndb() { mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=$1 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"; }
-mvndbs() { mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=$1 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"; }
-toggle-spring-prof() { SPRING_PROFILES_ACTIVE=$1; export SPRING_PROFILES_ACTIVE; }
-disp-spring-prof() { printenv | grep SPRING; }
-chex() { 
-
-    if [ $# -lt 2 ]; then
-        echo "Error!!!! $#/2 of arguments supplied"
-        return 0
-    fi
-
-    for file in *.$1; do
-        mv "${file}" "${file%.$1}.$2"
-    done
-}
-
-# Make directory then cd to it
-mkcd () {
-	mkdir $1; 
-	cd $1;
-}
-
  
-alias phome='cd ~/placester'
+alias phome='cd $PL_HOME_DIR'
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
 alias ssenc='java -jar SSEFilePC/ssefencgui.jar'
-
 
 # Enable aliases to be sudo-ed
 alias sudo='sudo '
@@ -209,3 +181,4 @@ alias path='echo -e ${PATH//:/\\n}'
 # Fast Find
 alias ff='find . -iname $1'
 
+alias ssh-pl='ssh $PL_INTERNAL_SERVER'
