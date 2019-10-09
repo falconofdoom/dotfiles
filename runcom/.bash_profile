@@ -1,4 +1,7 @@
-for DOTFILE in `find ~/dotfiles`
+echo "Bootstrapping dotfiles!"
+
+for DOTFILE in ../system/.{env,alias,function};
 do
-  [ -f “$DOTFILE” ] && source “$DOTFILE”
-done
+  echo "Sourcing $DOTFILE";
+  [ -f "$DOTFILE" ] && source "$DOTFILE" && echo "Commands in $DOTFILE were executed successfully!";
+done;
