@@ -1,6 +1,23 @@
 
 dispr() { cat "src/main/resources/$1"; }
-mvnbr() { mvn spring-boot:run -Dspring-boot.run.profiles=$1; }
+mvnbr() { 
+
+    if [ $# -lt 2 ]; then
+		mvn spring-boot:run -Dspring-boot.run.profiles=$1;
+        return 1
+    fi
+
+    if [ $# -eq 2 ]; then
+		mvn spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=--server.port=$2;
+		return 1
+    fi
+
+    if [ $# -gte 3 ]; then
+        echo "Error!!!! $#/2 of arguments supplied"
+		return 0
+    fi
+}
+
 mvndb() { mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=$1 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"; }
 mvndbs() { mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=$1 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"; }
 toggle-spring-prof() { SPRING_PROFILES_ACTIVE=$1; export SPRING_PROFILES_ACTIVE; }
