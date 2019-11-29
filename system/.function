@@ -41,3 +41,7 @@ mkcd () {
 	mkdir $1; 
 	cd $1;
 }
+
+docker-fremove() {
+	sudo docker stop $1 && sudo docker rm $1;
+}
