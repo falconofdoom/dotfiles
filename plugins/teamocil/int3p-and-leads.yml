@@ -1,0 +1,9 @@
+windows:
+  - name: int3p-four-panes
+    root: ~/placester/
+    layout: tiled
+    panes:
+      - cd Leads-Service/ && toggle-spring-prof internal && ./gradlew bootRun
+      - cd Accounts-Service/dist/server/ && ./runserver.sh
+      - cd Int3p-Auth-Client/ && mvnbr local
+      - cd Int3p-Auth-Service/ && mvnbr local

@@ -184,3 +184,4 @@ alias ff='find . -iname $1'
 
 alias ssh-pl='ssh $PL_INTERNAL_SERVER'
 
+alias tmux-int3p-leads="docker start myredis; tmux new-session -d -s int3p-and-leads 'teamocil int3p-and-leads'; tmux attach;"
