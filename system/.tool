@@ -4,4 +4,4 @@
 # Installation instructions here: https://github.com/chubin/cheat.sh
 [ -f ~/.fzf.bash ] && . ~/.bash.d/cht.sh
 
-# install tmux, subl, git-gui, gitk, java, maven, gradle, docker 
+# install tmux, subl, git-gui, gitk, java, maven, gradle, docker, teamocil
