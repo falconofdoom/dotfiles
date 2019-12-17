@@ -8,6 +8,11 @@ The packaging structure used here was directly inspired by Lars Kappert's blog [
 ## How to run
 To load the configurations made by this project just source **runcom/.bash_profile**. The script was based off Mathias Bynens' [bash_profile][3] script. Improvements such as installation scripts will be added as I go along.
 
+Example:
+
+```
+. ~/dotfiles/runcom/.bash_profile > /dev/null
+```
 
 
 ## References
