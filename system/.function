@@ -45,3 +45,32 @@ mkcd () {
 docker-fremove() {
 	sudo docker stop $1 && sudo docker rm $1;
 }
+
+is_merge_conflict() {
+	
+	if [[ -z "$1" ]]; then echo "Please provide feature branch"; return 0; else feature_branch=$1; fi
+	if [[ -z "$2" ]]; then echo "Please provide main branch"; return 0; else main_branch=$2; fi
+
+	git checkout $feature_branch
+	git format-patch $main_branch --stdout | git apply --check
+}
+
+mvnbrcl() { 
+
+    if [ $# -lt 2 ]; then
+        mvn spring-boot:run -Dspring-boot.run.arguments=--spring.config.location=$1;
+        return 1
+    fi
+
+    if [ $# -eq 2 ]; then
+        mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=$2:--spring.config.location=$1;
+        return 1
+    fi
+
+    if [ $# -gte 3 ]; then
+        echo "Error!!!! $#/2 of arguments supplied"
+        return 0
+    fi
+}
+
+mvndbscl() { mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.config.location=$1 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"; }
