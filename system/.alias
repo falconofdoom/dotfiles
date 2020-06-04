@@ -163,7 +163,7 @@ alias phome='cd $PL_HOME_DIR'
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
-alias ssenc='java -jar SSEFilePC/ssefencgui.jar'
+alias ssenc='java -jar ~/SSEFilePC/ssefencgui.jar'
 
 # Enable aliases to be sudo-ed
 alias sudo='sudo '
@@ -185,3 +185,7 @@ alias ff='find . -iname $1'
 alias ssh-pl='ssh $PL_INTERNAL_SERVER'
 
 alias tmux-int3p-leads="docker start myredis; tmux new-session -d -s int3p-and-leads 'teamocil int3p-and-leads'; tmux attach;"
+
+alias disable_ipv6_temp="sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1"
+
+alias enable_ipv6_temp="sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0"
