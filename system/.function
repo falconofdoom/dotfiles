@@ -74,3 +74,21 @@ mvnbrcl() {
 }
 
 mvndbscl() { mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.config.location=$1 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"; }
+
+
+
+replaceJsonField() { 
+	uuid=$(uuidgen);
+	jq ".$1=\"$uuid\"" $2 > "$uuid"; 
+	mv "$uuid" "$2";
+}
+
+
+rcat() {
+    if [ $# -lt 3 ]; then
+        echo "Invalid usage!: Usage must be <RANGE_START> <RANGE_END> <FILE_NAME>"
+        return 0
+    fi
+
+    sed -n "$1,$2 p" $3; 
+}

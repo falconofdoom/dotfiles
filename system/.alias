@@ -1,10 +1,10 @@
 # Thank you Michael Co for giving me these aliases
 alias ~="cd ~"
 alias -- -='cd -'
-alias ...=../..
-alias ....=../../..
-alias .....=../../../..
-alias ......=../../../../..
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 alias 1='cd -'
 alias 2='cd -2'
 alias 3='cd -3'
@@ -189,3 +189,6 @@ alias tmux-int3p-leads="docker start myredis; tmux new-session -d -s int3p-and-l
 alias disable_ipv6_temp="sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1"
 
 alias enable_ipv6_temp="sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0"
+
+
+alias docker-mq-and-cache="sudo docker start myredis && sudo docker start events-rabbitmq"
