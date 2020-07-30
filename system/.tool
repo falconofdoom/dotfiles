@@ -5,3 +5,5 @@
 [ -f ~/.fzf.bash ] && . ~/.bash.d/cht.sh
 
 # install tmux, subl, git-gui, gitk, java, maven, gradle, docker, teamocil
+
+# install lazydocker, httpie, 
