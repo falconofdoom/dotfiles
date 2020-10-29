@@ -16,5 +16,12 @@ do
   [ -f "$DOTFILE" ] && source "$DOTFILE" && echo "Commands in $DOTFILE were executed successfully!";
 done;
 
+source $DIR/.bootstrap-configs
+echo "====== Finishing boot strapping of dotfiles ======"
+
+sleep 1;
+clear;
+
 unset DIR;
 unset SOURCE;
+

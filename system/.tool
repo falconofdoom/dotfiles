@@ -7,3 +7,7 @@
 # install tmux, subl, git-gui, gitk, java, maven, gradle, docker, teamocil
 
 # install lazydocker, httpie, 
+
+
+# Install TPM if it doesn't exist
+! [ -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
