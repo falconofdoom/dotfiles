@@ -1,7 +1,11 @@
-echo "Bootstrapping dotfiles!"
+echo "Bootstrapping configs!"
 
 # From https://gist.github.com/TheMengzor/968e5ea87e99d9c41782
+
 SOURCE="${BASH_SOURCE[0]}"
+[[ $SHELL_ENV == "zsh" ]] && SOURCE="${(%):-%N}"
+
+
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 CONFDIR=$DIR/../conf
@@ -17,7 +21,8 @@ do
 		source="$(echo "$line" | awk '{print $1}')";
 		destination="$(echo "$line" | awk '{print $2}')";
 
-		if [[ "$destination" =~ ^\$HOME.* ]]; then
+		HOME_REGEX='^\$HOME.*'
+		if [[ "$destination" =~ $HOME_REGEX ]]; then
 			home=$(echo $HOME)
 			destination="${destination/\$HOME/$home}";
 			echo "HOME VAR referenced, destination transformed to $destination"

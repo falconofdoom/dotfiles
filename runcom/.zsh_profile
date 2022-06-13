@@ -1,9 +1,9 @@
 echo "Bootstrapping dotfiles!"
 
-export SHELL_ENV="bash"
+export SHELL_ENV="zsh"
 
 # From https://gist.github.com/TheMengzor/968e5ea87e99d9c41782
-SOURCE="${BASH_SOURCE[0]}"
+SOURCE="${(%):-%N}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"
@@ -17,6 +17,8 @@ do
   echo "Sourcing $DOTFILE";
   [ -f "$DOTFILE" ] && source "$DOTFILE" && echo "Commands in $DOTFILE were executed successfully!";
 done;
+
+echo "Sourcing bootstrap $DIR/.bootstrap-configs"
 
 source $DIR/.bootstrap-configs
 echo "====== Finishing boot strapping of dotfiles ======"
