@@ -207,3 +207,7 @@ alias dck-mk-redis="docker run --name=myredis --volume=/home/onb-daniel/docker/r
 
 
 alias dev-id-for-touch-screen=" xinput list | grep G2Touch.* | grep -Eo \"id=[0-9]+\" | grep -Eo \"[0-9]+\""
+
+alias utcnn="date -u +\"%Y-%m-%dT%H:%M:%S.%3NZ\""
+
+alias gen-invite-code="tr -dc A-Za-z0-9 </dev/urandom | head -c 8 | tr '[:lower:]' '[:upper:]' ; echo ''"

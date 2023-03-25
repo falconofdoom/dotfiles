@@ -92,3 +92,10 @@ rcat() {
 
     sed -n "$1,$2 p" $3; 
 }
+
+bluetoothInterfaceRestart() {
+    hciconfig hci0 down
+    rmmod btusb
+    modprobe btusb
+    hciconfig hci0 up
+}
